@@ -2,26 +2,50 @@ const personagens = {
     "Chaves": 0,
     "Quico": 0,
     "Chiquinha": 0,
-    "Florinda": 0,
-    "Clotilde": 0,
-    "Madruga": 0
+    "Dona Florinda": 0,
+    "Bruxa do 71": 0,
+    "Seu Madruga": 0
 };
 
 const perguntas = [
     {
-        enunciado: "Quanto você gosta de sanduíche?",
+        enunciado: "Qual é o seu maior desejo na vila",
         opcoes: [
-            { texto: "Muito", valor: { "Chaves": 1, "Quico": 2 } },
-            { texto: "Pouco", valor: { "Chaves": 0, "Quico": 1 } },
-            { texto: "Pouco", valor: { "Chaves": 0, "Quico": 1 } }
+            { texto: "Ter sempre um sanduíche de presunto para comer e um canto para dormir 🥪", valor: { "Chaves": 3, "Quico": 2, "Seu Madruga": 1} },
+            { texto: "Ser respeitado por todos como o mais importante da vila", valor: { "Dona Florinda": 3, "Quico": 2, "Bruxa do 71": 1} },
+            { texto: "Bolar uma travessura que faça todos falarem de você", valor: { "Chiquinha": 3, "Chaves": 2, "Seu Madruga": 1 } }
         ]
     },
     {
-        enunciado: "Você gosta de suco?",
+        enunciado: "Como você lida com a chegada do Seu Barriga cobrando o aluguel?",
         opcoes: [
-            { texto: "Sim", valor: { "Chiquinha": 1 } },
-            { texto: "Não", valor: { "Florinda": 1 } },
-            { texto: "Pouco", valor: { "Chaves": 0, "Quico": 1 } }
+            { texto: "Tento explicar que não tenho dinheiro, com cara de inocente", valor: { "Chiquinha": 2, "Chaves": 3, "Seu Madruga": 1 } },
+            { texto: "Ofereço um café e converso para ganhar tempo", valor: { "Dona Florinda": 3, "Quico": 1, "Bruxa do 71": 2 } },
+            { texto: "Sumo correndo antes que ele me veja", valor: { "Chiquinha": 2, "Chaves": 1, "Seu Madruga": 3 } }
+        ]
+    },
+    {
+        enunciado: "O que te faz sentir vivo na vila?",
+        opcoes: [
+            { texto: "Fazer os vizinhos rirem, mesmo sem querer querendo", valor: { "Chiquinha": 1, "Chaves": 3, "Quico": 2 } },
+            { texto: "Ser admirado por sua postura e maneiras refinadas", valor: { "Dona Florinda": 3, "Quico": 2, "Bruxa do 71": 1 } },
+            { texto: "Criar um plano esperto que surpreenda a todos", valor: { "Chiquinha": 3, "Chaves": 1, "Seu Madruga": 2 } }
+        ]
+    },
+    {
+        enunciado: "Como você reage quando alguém te irrita no pátio?",
+        opcoes: [
+            { texto: "Fico triste, mas logo perdoo e tento ser amigo", valor: { "Dona Florinda": 1, "Chaves": 3, "Quico": 2 } },
+            { texto: "Respondo com um tapa ou uma bronca bem dada", valor: { "Dona Florinda": 3, "Seu Madruga": 2, "Chiquinha": 1 } },
+            { texto: "Penso em uma vingança misteriosa para mais tarde", valor: { "Bruxa do 71": 3, "Quico": 1, "Chiquinha": 2 } }
+        ]
+    },
+    {
+        enunciado: "O que te anima nas tardes da vila?",
+        opcoes: [
+            { texto: "Brincar no pátio com os amigos, nem que seja com uma bola murcha", valor: { "Quico": 1, "Chiquinha": 3, "Chaves": 2 } },
+            { texto: "Servir um chá com bolinhos e conversar com classe", valor: { "Dona Florinda": 3, "Bruxa do 71": 2, "Quico": 1 } },
+            { texto: "Tirar uma soneca sem ninguém te incomodar", valor: { "Seu Madruga": 3, "Chaves": 2, "Bruxa do 71": 1 } }
         ]
     }
 ];
@@ -83,6 +107,8 @@ function selecionarOpcao(botao, opcao, i) {
 
     estadoPerguntas[i].botaoAtual = botao;
     estadoPerguntas[i].pontosAtuais = opcao.valor;
+
+    console.log(personagens)
 
     const tudoRespondido = estadoPerguntas.every(est => est.botaoAtual !== null);
     confirmar.disabled = !tudoRespondido;

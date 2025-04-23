@@ -136,12 +136,6 @@ function exibirResultado() {
     nome.textContent = personagemComMaisPontos;
     resultado.appendChild(nome);
 
-    /*Parte para mostrar a imagem do personagem
-    const imagem = document.createElement("img");
-    imagem.src = `imagens/${personagemComMaisPontos.toLowerCase()}.jpg`;
-    imagem.id = "imagem-personagem";
-    resultado.appendChild(imagem);*/
-
     const reset = document.createElement("button");
     reset.textContent = "Resetar Quiz";
     resultado.appendChild(reset);
